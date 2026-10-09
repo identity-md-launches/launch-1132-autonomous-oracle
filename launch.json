@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "OracleToken",
+    "name": "AutonomoUs oracle",
+    "symbol": "ORACLE",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "economics": {
+    "poolBps": 8000,
+    "initialMarketCapWei": "2500000000000000000000",
+    "remainderTo": "0x70bcbde387539d95ffe6d43edbf7c6aa2da87a09"
+  },
+  "notes": "OracleToken (src/OracleToken.sol) is a plain fixed-supply ERC-20: name 'AutonomoUs oracle', symbol 'ORACLE', 18 decimals. Its constructor takes no arguments and mints the whole supply of 1,000,000,000 ORACLE (1000000000000000000000000000 minor units) once to msg.sender, which at launch is the ProjectFactory; totalSupply() is a compile-time constant. There is no owner, minter, burner, pause, blocklist, fee, tax, reflection, hook, proxy, library, external call, delegatecall or selfdestruct: every transfer moves exactly the amount requested, so the factory's transfer to the MerkleDistributor, the distributor's claims, the single-sided pool seed and trader swaps through the PoolManager all arrive whole without any exemption. The token therefore needs none of the $factory, $poolManager or $launchNumber constructor placeholders. No application contracts are part of this launch. Pool: paired with IMD at 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7, fee 12500 (1.25%), tick spacing 60; initialPrice is provenance only, the deployer derives the opening price from economics.initialMarketCapWei (2,500 IMD for the whole supply) and totalSupply. Economics copied verbatim from the job: 80% of the supply seeds the pool, the remainder of the requester's share goes to 0x70bcbde387539d95ffe6d43edbf7c6aa2da87a09; the swarm's 10% is taken by the factory and is not written here."
+}
